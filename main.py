@@ -16,5 +16,16 @@ def Login():
 def Register():
     return render_template("register.html")
 
+
+@app.route("/main")
+def Main():
+    # open json file
+    # check if the user is allready existed or not.
+    # append into json file.
+    # close the json file.
+    # display the main page.
+    # else redirect into an error page
+    return render_template("main.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
