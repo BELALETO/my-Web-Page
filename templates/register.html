@@ -9,20 +9,19 @@
     
     <div class="container">
         <h1>Register page</h1>
-        <form action="main" method="get">
-
+        <form action="/main" method="post">
             <div class="userName_area">
                 <label for="userName">User Name</label>
                 <input type="text" id="userName" name="newUserName" placeholder="Enter Your Name..." required>
             </div>
-
+        
             <div class="email_area">
                 <label for="email">User email</label>
                 <input type="email" id="email" name="newEmail" placeholder="example@gmail.com" required>
             </div>
-
+        
             <div class="password_area">
-                <label for="Password">User Name</label>
+                <label for="Password">Password</label>
                 <input type="password" id="Password" name="newPassword" placeholder="Enter Your Password" required>
             </div>
             
@@ -30,6 +29,7 @@
                 <button id="registerButton" type="submit" name="page_id" value="reg_id">Register</button>
             </div>
         </form>
+        
         <a href="/"><button type="button">Return</button></a>
 
 

@@ -10,23 +10,22 @@
     <h1>Login page</h1>
 
     <div class="container">
-        <form action="main" method="get">
-
+        <form action="/main" method="post">
             <div class="userName_area">
                 <label for="userName">User Name:</label>
                 <input type="text" id="userName" name="userName" required>
             </div>
-
+        
             <div class="password_area">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
-
+        
             <div class="confirmButton">
                 <button id="loginButton" type="submit" name="page_id" value="log_id">Login</button>
             </div>
-
         </form>
+        
         <a href="/"><button type="button">Return</button></a>
     </div>
     
