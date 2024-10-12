@@ -1,23 +1,26 @@
 import subprocess
 
+
 class compiler:
     cpp_file = ""
     cpp_out = ""
-    
+
     def __init__(self, cpp_file, cpp_out):
         self.cpp_file = cpp_file
         self.cpp_out = cpp_out
-        
-    def build(self, cpp_file, cpp_out):
-        command = ["g++", cpp_file, "-o", cpp_out]
+    
+    def build_Run(self):
+        command = ["g++", self.cpp_file, "-o", self.cpp_out]
         try:
             subprocess.run(command, check=True)
-            return f"code compiled successfully"
-        
-        except subprocess.SubprocessError as e:
-            return f"compiler error: {e}"
+            result = subprocess.run(["./"+ self.cpp_out], check=True, text=True, capture_output=True)
+            output = result.stdout
+            error = result.stderr
+
+            if error:
+                return error
+            else:
+                return output
     
-    def run_exe(self, cpp_out):
-        command = ["./", cpp_out]
-        return subprocess.run(command, check=True, capture_output=True, text=True)
-        
+        except subprocess.SubprocessError as e:
+           return f"Error: {e}"

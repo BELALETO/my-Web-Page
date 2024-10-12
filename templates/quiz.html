@@ -5,13 +5,24 @@
 {% block content %}
 
 <h1>Enter Your Code</h1>
-    <form action="#" method="post">
-        <div id="codeArea">
-            <label for="code">Code:</label><br>
-            <textarea id="code" name="code" rows="10" cols="50" placeholder="Enter your code here..." required></textarea>
+
+    <div class="container">
+
+        <div id="problem_txt">
+            {{QUIZ}}
+             <!-- write if elif condition for the value of QUIZ value -->
         </div>
-        <br>
-        <input type="submit" value="Submit">
-    </form>
+
+        <form action="result" method="post">
+            <div id="codeArea">
+                <label for="code">Code:</label><br>
+                <textarea id="code" name="code" rows="10" cols="50" placeholder="Enter your code here..." required></textarea>
+            </div>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    
 
 {% endblock %}

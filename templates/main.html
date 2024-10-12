@@ -20,27 +20,30 @@
 
 
 <div class="container">
-
-<h2 id="problem_head">Select your problem</h2>
-
-<div id="problem_container">
-    <ol id="problem_list">
-        <li class="problem"><button type="button">Quiz 1</button></li>
-        <li class="problem"><button type="button">Quiz 2</button></li>
-        <li class="problem"><button type="button">Quiz 3</button></li>
-        <li class="problem"><button type="button">Quiz 4</button></li>
-        <li class="problem"><button type="button">Quiz 5</button></li>
-    </ol>
-</div>
-
-<div id="user_info">
-    <h2>Your Progress</h2>
-    <h3 id="progress">{{INFO}}</h3>
-</div>
-
+    
+    <h2 id="problem_head">Select your problem</h2>
+    
+    <div id="problem_container">
+        <form action="/quiz" method="get">
+            <ol id="problem_list">
+                <li><button class="problem" name="problem_description" id="btn_1" type="submit" value="problem_1">Quiz 1</button></li>
+                <li><button class="problem" name="problem_description" id="btn_2" type="submit" value="problem_2">Quiz 2</button></li>
+                <li><button class="problem" name="problem_description" id="btn_3" type="submit" value="problem_3">Quiz 3</button></li>
+                <li><button class="problem" name="problem_description" id="btn_4" type="submit" value="problem_4">Quiz 4</button></li>
+                <li><button class="problem" name="problem_description" id="btn_5" type="submit" value="problem_5">Quiz 5</button></li>
+            </ol>
+        </form>
+    </div>
+    
+    <div id="user_info">
+        <h2>Your Progress</h2>
+        <h3 id="progress">{{INFO}}</h3>
+    </div>
+    
 </div>
 
 
 {% endif %}
 
+<script src="../static/script.js"></script>
 {% endblock %}
