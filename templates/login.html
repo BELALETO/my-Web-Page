@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
 
+
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
     <h1>Login page</h1>
-
     <div class="container">
         <form action="/main" method="post">
             <div class="userName_area">
@@ -20,14 +17,10 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
-        
             <div class="confirmButton">
                 <button id="loginButton" type="submit" name="page_id" value="log_id">Login</button>
             </div>
         </form>
-        
         <a href="/"><button type="button">Return</button></a>
     </div>
-    
-</body>
-</html>
+{% endblock %}

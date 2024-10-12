@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <!-- Link CSS file -->
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
     <h1>Welcome to codeTalkers</h1>
     
     <div class="container">
@@ -14,5 +10,4 @@
         <button class="HomeButton" id="Register">Register Now</button>
     </div>
     <script src="../static/script.js"></script>
-</body>
-</html>
+{% endblock %}
