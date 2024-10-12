@@ -8,5 +8,20 @@
         "name": "Safy",
         "email": "safy@gmail.com",
         "password": "11111111"
+    },
+    {
+        "name": "Momen",
+        "email": "momen@gmail.com",
+        "password": "11111111"
+    },
+    {
+        "name": "Heba",
+        "email": "heba@gmail.com",
+        "password": "1122334455"
+    },
+    {
+        "name": "Rawan",
+        "email": "rawan@gmail.com",
+        "password": "22334455"
     }
 ]

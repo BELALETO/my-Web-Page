@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 import jsonHandler
 
 app = Flask(__name__)
+app.secret_key = "codeTalkers"
 
 @app.route("/")
 def Home():
@@ -26,19 +27,28 @@ def Main():
             obj = jsonHandler.JsonHandler(name, email, password)
             flag = obj.save_to_json("static/users.json")
             if flag:
+                flash("Welcome Challenger!")
                 return render_template("main.html", DATA=obj.to_json())
             else:
                 return render_template("index.html")
-        else:  # Login
+        else:
             name = request.form.get("userName")
             password = request.form.get("password")
             flag = jsonHandler.check_user("static/users.json", name, password)
             if flag:
+                flash("You've been logged in successfully!", "info")
                 return render_template("main.html", DATA="Hello " + name)
             else:
                 return render_template("index.html")
     
-    return redirect(url_for('Home')) 
+    return redirect(url_for('Home'))
+
+
+@app.route("/quiz", methods=["GET", "POST"])
+def Quiz():
+    return render_template("quiz.html")
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
