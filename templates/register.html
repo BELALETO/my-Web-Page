@@ -4,6 +4,19 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
+
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+            
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+           
+        {% endif %}
+{% endwith %}
+
+
+
 <div class="container">
     <h1>Register page</h1>
     <form action="/main" method="post">

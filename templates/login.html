@@ -4,7 +4,23 @@
 
 {% block title %}Login{% endblock %}
 
+
+
+
+
 {% block content %}
+
+
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+            
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+           
+        {% endif %}
+{% endwith %}
+
     <h1>Login page</h1>
     <div class="container">
         <form action="/main" method="post">
