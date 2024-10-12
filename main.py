@@ -28,7 +28,8 @@ def Main():
             flag = obj.save_to_json("static/users.json")
             if flag:
                 flash("Welcome Challenger!")
-                return render_template("main.html", DATA="logged")
+                progress = jsonHandler.get_progress("static/users.json", name)
+                return render_template("main.html", DATA="logged", INFO = str(progress))
             else:
                 flash("Invalid user name or email!", "error")
                 return redirect(url_for("Register"))
@@ -38,7 +39,8 @@ def Main():
             flag = jsonHandler.check_user("static/users.json", name, password)
             if flag:
                 flash("You've been logged in successfully!", "info")
-                return render_template("main.html", DATA="logged")
+                progress = jsonHandler.get_progress("static/users.json", name)
+                return render_template("main.html", DATA="logged", INFO = str(progress))
             else:
                 flash("Wrong name or password!")
                 return redirect(url_for("Login"))
