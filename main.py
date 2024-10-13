@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 import jsonHandler
-import localCompiler
 import judge
 
 
@@ -31,34 +30,49 @@ def Register():
 @app.route("/main", methods=["GET", "POST"])  
 def Main():
     if request.method == "POST":  
-        id = request.form.get("page_id") # checking page id to know if the request from existing user or new one. 
+        id = request.form.get("page_id")  # Determine if request is from register or login
+
         if id == "reg_id":  
-            name = request.form.get('newUserName')  #getting user name
-            email = request.form.get('newEmail')    #getting user email
-            password = request.form.get('newPassword') #getting user password
-            obj = jsonHandler.JsonHandler(name, email, password) # creating a jsonHandler object.
-            flag = obj.save_to_json("static/users.json") # save user info
-            if flag: #checking if the user is allready existed or not.
-                flash("Welcome Challenger!") # flashing a new message to the new challenger
-                progress = jsonHandler.get_progress("static/users.json", name) # fetching the progress property.
-                return render_template("main.html", DATA="logged", INFO = str(progress)) # showing the page with data
+            # Registration Process
+            name = request.form.get('newUserName')  
+            email = request.form.get('newEmail')    
+            password = request.form.get('newPassword') 
+
+            obj = jsonHandler.JsonHandler(name, email, password) 
+            flag = obj.save_to_json("static/users.json") 
+
+            if flag:  # Registration successful
+                session['username'] = name  # Set session variable
+                flash("Welcome Challenger!") 
+                
+                progress = jsonHandler.get_progress("static/users.json", name) 
+                return redirect(url_for("Main"))  # Redirect to dashboard
             else:
-                flash("Invalid user name or email!", "error") # flashing error message.
-                return redirect(url_for("Register")) # return to the Register page.
+                flash("Invalid user name or email!", "error") 
+                return redirect(url_for("Register")) 
+
         else:
+            # Login Process
             name = request.form.get("userName")
             password = request.form.get("password")
             flag = jsonHandler.check_user("static/users.json", name, password)
+
             if flag:
+                session['username'] = name  # Set session variable
                 flash("You've been logged in successfully!", "info")
-                progress = jsonHandler.get_progress("static/users.json", name)
-                return render_template("main.html", DATA="logged", INFO = str(progress))
+                return redirect(url_for("Main"))  # Redirect to dashboard
             else:
                 flash("Wrong name or password!")
                 return redirect(url_for("Login"))
     
-    return redirect(url_for('Home'))
-
+    # Handle GET request: Display Dashboard if logged in
+    if 'username' in session:
+        name = session['username']
+        progress = jsonHandler.get_progress("static/users.json", name)
+        return render_template("main.html", DATA="logged", INFO=str(progress))
+    else:
+        flash("Please log in or register to access the dashboard.")
+        return redirect(url_for('Home'))
 
 @app.route("/quiz", methods = ["GET", "POST"])
 def Quiz():
@@ -108,13 +122,15 @@ def Result():
         file.write(code)
     refree = judge.court(cpp_file, main_file, cpp_out, main_out)
     if refree.sentence():
+        
+        #increment progress here.
         return render_template("result.html", DATA = "Your Solution is correct!", FLAG = key)
     else:
         return render_template("result.html", DATA = "Wrong Solution try again!", FLAG = key)
-    # print(refree.sentence())
-    # print(obj.build_Run())
     
-
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+ 
