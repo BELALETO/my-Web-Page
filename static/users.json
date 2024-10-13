@@ -16,5 +16,11 @@
         "email": "momen@gmail.com",
         "password": "1234444",
         "progress": 0
+    },
+    {
+        "name": "Sara",
+        "email": "Sara@gmail.com",
+        "password": "1223455",
+        "progress": 0
     }
 ]

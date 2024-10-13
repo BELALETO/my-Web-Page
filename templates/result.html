@@ -7,5 +7,11 @@
 <h1>The result is:</h1>
 
 {{DATA}}
+{{FLAG}}
 
+{% if DATA == "Your Solution is correct!" %}
+    <a href="/main"><button>Return to Dashboard</button></a>
+{% else %}
+    <a href="/quiz?problem_description= {{FLAG}}"><button>Return to Quiz</button></a>
+{%endif%}
 {% endblock %}

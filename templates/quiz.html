@@ -10,6 +10,17 @@
 
         <div id="problem_txt">
             {{QUIZ}}
+            {% if QUIZ == "problem_1" %}
+                <p>write a code which returns Hello World sentence</p>
+            {% elif QUIZ == "problem_2" %}
+                <p>Write a code which print the sum of two varialbes</p>
+            {% elif QUIZ == "problem_3" %}
+                <p>Write a code which print the subtration of two variables</p>
+            {% elif QUIZ == "problem_4" %}
+                <p>Write a code which print the multiplication of two varialbes</p>
+            {% elif QUIZ == "problem_5" %}
+                <p>Write a code which print the division of two varialbes</p>
+            {%endif%}
              <!-- write if elif condition for the value of QUIZ value -->
         </div>
 
@@ -17,6 +28,7 @@
             <div id="codeArea">
                 <label for="code">Code:</label><br>
                 <textarea id="code" name="code" rows="10" cols="50" placeholder="Enter your code here..." required></textarea>
+                <input type="hidden" name="quiz_id" value="{{QUIZ}}">
             </div>
             <br>
             <input type="submit" value="Submit">
