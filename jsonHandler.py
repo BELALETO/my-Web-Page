@@ -50,7 +50,43 @@ def get_progress(fileName, userName):
             if user["name"] == userName:
                 return user["progress"]
         return 0
-    
 
+
+
+
+def update_progress(fileName, userName):
+    try:
+        with open(fileName, "r") as file:
+            content = json.load(file)
+    except FileNotFoundError:
+        print(f"Error: The file {fileName} does not exist.")
+        return False
+    except json.JSONDecodeError:
+        print(f"Error: The file {fileName} contains invalid JSON.")
+        return False
+
+    user_found = False
+
+    for user in content:
+        if user.get("name") == userName:
+            if "progress" in user and isinstance(user["progress"], int):
+                user["progress"] += 1
+            else:
+                user["progress"] = 1
+            user_found = True
+            break 
+
+    if not user_found:
+        print(f"Error: User '{userName}' not found.")
+        return False
+
+    try:
+        with open(fileName, "w") as file:
+            json.dump(content, file, indent=4)
+    except IOError as e:
+        print(f"Error writing to file {fileName}: {e}")
+        return False
+
+    return True
 
              
