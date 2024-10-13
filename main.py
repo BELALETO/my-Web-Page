@@ -69,7 +69,7 @@ def Main():
     if 'username' in session:
         name = session['username']
         progress = jsonHandler.get_progress("static/users.json", name)
-        return render_template("main.html", DATA="logged", INFO=str(progress))
+        return render_template("main.html", DATA="logged", INFO=str(progress), NAME = name)
     else:
         flash("Please log in or register to access the dashboard.")
         return redirect(url_for('Home'))
@@ -78,8 +78,9 @@ def Main():
 def Quiz():
     if request.method == "GET":
         content = request.args.get("problem_description")
+        name = request.args.get("userName")
         print(content)
-        return render_template("quiz.html", QUIZ = content)
+        return render_template("quiz.html", QUIZ = content, NAME = name)
     
     
     
@@ -123,7 +124,11 @@ def Result():
     refree = judge.court(cpp_file, main_file, cpp_out, main_out)
     if refree.sentence():
         
+        fileName = "static/users.json"
+        userName = request.form.get("userName")
+        print(userName)
         #increment progress here.
+        jsonHandler.update_progress(fileName, userName)
         return render_template("result.html", DATA = "Your Solution is correct!", FLAG = key)
     else:
         return render_template("result.html", DATA = "Wrong Solution try again!", FLAG = key)
