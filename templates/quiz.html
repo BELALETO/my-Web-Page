@@ -22,18 +22,22 @@
                 <p>Write a code which print the division of two varialbes</p>
             {%endif%}
              <!-- write if elif condition for the value of QUIZ value -->
-        </div>
+            </div>
 
+        <div><h3>Challenger name: {{NAME}}</h3></div>
+        
         <form action="result" method="post">
             <div id="codeArea">
                 <label for="code">Code:</label><br>
                 <textarea id="code" name="code" rows="10" cols="50" placeholder="Enter your code here..." required></textarea>
                 <input type="hidden" name="quiz_id" value="{{QUIZ}}">
+                <input type="hidden" name="userName" value="{{NAME}}">
             </div>
             <br>
             <input type="submit" value="Submit">
         </form>
     </div>
+
 
     
 
