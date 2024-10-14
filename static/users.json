@@ -3,7 +3,7 @@
         "name": "Belal",
         "email": "belalsryo@gmail.com",
         "password": "12345678",
-        "progress": 0
+        "progress": 9
     },
     {
         "name": "Heba",
@@ -22,5 +22,11 @@
         "email": "Sara@gmail.com",
         "password": "1223455",
         "progress": 0
+    },
+    {
+        "name": "Bayan",
+        "email": "Bayan@gmail.com",
+        "password": "123456",
+        "progress": 2
     }
 ]
