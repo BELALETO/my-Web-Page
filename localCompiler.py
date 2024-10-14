@@ -1,5 +1,4 @@
 import subprocess
-import glob
 
 class compiler:
     cpp_file = ""
@@ -15,10 +14,13 @@ class compiler:
         command = ["g++", self.cpp_file, "-o", self.cpp_out]
         try:
             subprocess.run(command, check=True)
-            result = subprocess.run(["./"+ self.cpp_out], check=True, text=True, capture_output=True)
             if self.input_file:
+                print(self.input_file)
                 with open(self.input_file, "r") as input:
-                    subprocess.run(["./" + self.cpp_out], stdin = input) #passing the input file to stdin buffer.
+                    result = subprocess.run(["./" + self.cpp_out], stdin = input) #passing the input file to stdin buffer.
+            else:        
+                result = subprocess.run(["./"+ self.cpp_out], check=True, text=True, capture_output=True)
+                
             output = result.stdout
             error = result.stderr
 
