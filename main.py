@@ -110,21 +110,21 @@ def Result():
         input_file = "static/exams/solution_2/test.txt"
         
     elif key == "problem_3":
-        main_file = "static/exams/solution_3/solution_3.cpp"
+        main_file = "static\exams\solution_3\solution3.cpp"
         main_out = "solution_3"
-        input_file = "/static/exams/solution_3/test.txt"
+        input_file = "static/exams/solution_3/test.txt"
 
         
         
     elif key == "problem_4":
-        main_file = "static/exams/solution_4/solution_4.cpp"
+        main_file = "static\exams\solution_4\solution4.cpp"
         main_out = "solution_4"
-        input_file = "/static/exams/solution_4/test.txt"
+        input_file = "static/exams/solution_4/test.txt"
 
     elif key == "problem_5":
-        main_file = "static/exams/solution_5/solution_5.cpp"
+        main_file = "static\exams\solution_5\solution5.cpp"
         main_out = "solution_5"
-        input_file = "/static/exams/solution_5/test.txt"
+        input_file = "static/exams/solution_5/test.txt"
 
      
     with open(cpp_file, "w") as file:
