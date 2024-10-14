@@ -92,6 +92,7 @@ def Result():
     print(code)
     cpp_file = "static/example.cpp"
     cpp_out = "example"
+    input_file = ""
     
     # write a logic to map each file to its model solution.
     main_file = ""
@@ -99,29 +100,36 @@ def Result():
     print("Your key is: " + str(key))
     
     if key == "problem_1":
-        main_file = "static/exams/solution_1.cpp"
+        main_file = "static/exams/solution_1/solution_1.cpp"
         main_out = "solution_1"
+        # No test.txt file.
 
     elif key == "problem_2":
-        main_file = "static/exams/solution_1.cpp"
-        main_out = "solution_1"
+        main_file = "static/exams/solution_2/solution_2.cpp"
+        main_out = "solution_2"
+        input_file = "/static/exams/solution_2/test.txt"
         
     elif key == "problem_3":
-        main_file = "static/exams/solution_3.cpp"
+        main_file = "static/exams/solution_3/solution_3.cpp"
         main_out = "solution_3"
+        input_file = "/static/exams/solution_3/test.txt"
+
+        
         
     elif key == "problem_4":
-        main_file = "static/exams/solution_4.cpp"
+        main_file = "static/exams/solution_4/solution_4.cpp"
         main_out = "solution_4"
-        
+        input_file = "/static/exams/solution_4/test.txt"
+
     elif key == "problem_5":
-        main_file = "static/exams/solution_5.cpp"
+        main_file = "static/exams/solution_5/solution_5.cpp"
         main_out = "solution_5"
-    
+        input_file = "/static/exams/solution_5/test.txt"
+
      
     with open(cpp_file, "w") as file:
         file.write(code)
-    refree = judge.court(cpp_file, main_file, cpp_out, main_out)
+    refree = judge.court(cpp_file, main_file, cpp_out, main_out, input_file)
     if refree.sentence():
         
         fileName = "static/users.json"
