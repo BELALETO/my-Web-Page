@@ -67,20 +67,24 @@ def Main():
     
     # Handle GET request: Display Dashboard if logged in
     if 'username' in session:
-        name = session['username']
-        progress = jsonHandler.get_progress("static/users.json", name)
-        return render_template("main.html", DATA="logged", INFO=str(progress), NAME = name)
+        session_name = session['username']
+        progress = jsonHandler.get_progress("static/users.json", session_name)
+        return render_template("main.html", DATA="logged", INFO=str(progress), NAME = session_name)
     else:
         flash("Please log in or register to access the dashboard.")
         return redirect(url_for('Home'))
 
 @app.route("/quiz", methods = ["GET", "POST"])
 def Quiz():
-    if request.method == "GET":
+    if request.method == "GET" and "username" in session:
+        session_name = session["username"]
         content = request.args.get("problem_description")
-        name = request.args.get("userName")
         print(content)
-        return render_template("quiz.html", QUIZ = content, NAME = name)
+        return render_template("quiz.html", QUIZ = content, NAME = session_name)
+    else :
+        # flash("Please log in or register to access the Quiz form.")
+        return redirect(url_for("Home"))
+        
     
     
     
@@ -141,6 +145,12 @@ def Result():
     else:
         return render_template("result.html", DATA = "Wrong Solution try again!", FLAG = key)
     
+
+@app.route("/logout")
+def Logout():
+    session.pop("username", None)
+    return redirect(url_for("Home"))
+
 
 if __name__ == "__main__":
     app.run(debug=True)
