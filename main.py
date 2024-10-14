@@ -105,9 +105,9 @@ def Result():
         # No test.txt file.
 
     elif key == "problem_2":
-        main_file = "static/exams/solution_2/solution_2.cpp"
+        main_file = "static\exams\solution_2\solution2.cpp"
         main_out = "solution_2"
-        input_file = "/static/exams/solution_2/test.txt"
+        input_file = "static/exams/solution_2/test.txt"
         
     elif key == "problem_3":
         main_file = "static/exams/solution_3/solution_3.cpp"
