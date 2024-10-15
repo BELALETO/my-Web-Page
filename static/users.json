@@ -1,17 +1,5 @@
 [
     {
-        "name": "Belal",
-        "email": "belalsryo@gmail.com",
-        "password": "12345678",
-        "progress": 9
-    },
-    {
-        "name": "Heba",
-        "email": "heba@gmail.com",
-        "password": "1122334455",
-        "progress": 0
-    },
-    {
         "name": "Momen",
         "email": "momen@gmail.com",
         "password": "1234444",
@@ -27,6 +15,18 @@
         "name": "Bayan",
         "email": "Bayan@gmail.com",
         "password": "123456",
+        "progress": 2
+    },
+    {
+        "name": "John",
+        "email": "johnDoe@gmail.com",
+        "password": "12345",
+        "progress": 0
+    },
+    {
+        "name": "Khaled",
+        "email": "Khaled@gmail.com",
+        "password": "12345",
         "progress": 2
     }
 ]

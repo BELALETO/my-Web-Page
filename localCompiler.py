@@ -15,7 +15,7 @@ class compiler:
         try:
             subprocess.run(command, check=True)
             if self.input_file:
-                print(self.input_file)
+                # print(self.input_file)
                 with open(self.input_file, "r") as input:
                     result = subprocess.run(["./" + self.cpp_out], stdin = input) #passing the input file to stdin buffer.
             else:        
