@@ -28,5 +28,11 @@
         "email": "Khaled@gmail.com",
         "password": "12345",
         "progress": 2
+    },
+    {
+        "name": "Belal",
+        "email": "belalsryo@gmail.com",
+        "password": "1234",
+        "progress": 1
     }
 ]

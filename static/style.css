@@ -1,0 +1,142 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container
+{
+    position: absolute;
+    padding: 10px;
+    top : 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.container h1
+{
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+.container form
+{
+    box-sizing: border-box;
+    padding: 0 40px;
+}
+
+form .text_area
+{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.text_area input
+{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.text_area label
+{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.text_area span::before
+{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #2691d9;
+    transition: .5s;
+}
+
+.text_area input:focus ~ label,
+.text_area input:valid ~ label
+{
+    top: -5px;
+    color: #2691d9;
+}
+
+.text_area input:focus ~ span::before,
+.text_area input:valid ~ span::before
+{
+    width: 100%;
+}
+
+.confirm
+{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #2691d9;
+    border-radius: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+.confirm:hover
+{
+    border-color: #2691d9;
+    transition: .59;
+}
+
+.returnBtn
+{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #2691d9;
+    border-radius: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.returnBtn:hover
+{
+    border-color: #2691d9;
+    transition: .59;
+}
+
+
+
+#error_message
+{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+    margin: 20px;
+    text-align: center;
+    border: solid aqua;
+    border-radius: 18px;
+}

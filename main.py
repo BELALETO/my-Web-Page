@@ -82,7 +82,7 @@ def Quiz():
         print(content)
         return render_template("quiz.html", QUIZ = content, NAME = session_name)
     else :
-        # flash("Please log in or register to access the Quiz form.")
+        flash("Please log in or register to access the Quiz form.")
         return redirect(url_for("Home"))
         
     

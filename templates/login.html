@@ -10,33 +10,41 @@
 
 {% block content %}
 
+<div class="container">
+        <h1>Login</h1>
 
-{% with messages = get_flashed_messages() %}
+        <form action="/main" method="post">
+            <div class="text_area">
+
+                <input type="text" id="userName" name="userName" required>
+                <span></span>
+                <label for="userName">User Name</label>
+
+            </div>
+        
+            <div class="text_area">
+                <input type="password" id="password" name="password" required>
+                <span></span>
+                <label for="password">Password</label>
+            </div>
+            <div class="confirmButton">
+                <button id="loginButton" type="submit" name="page_id" value="log_id" class="confirm">Login</button>
+                <a href="/"><button type="button" class="returnBtn">Return</button></a>
+            </div>
+        </form>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
         {% if messages %}
             
                 {% for message in messages %}
-                    <p>{{ message }}</p>
+                    <p id="error_message">{{ message }}</p>
                 {% endfor %}
            
         {% endif %}
 {% endwith %}
 
-    <h1>Login page</h1>
-    <div class="container">
-        <form action="/main" method="post">
-            <div class="userName_area">
-                <label for="userName">User Name:</label>
-                <input type="text" id="userName" name="userName" required>
-            </div>
-        
-            <div class="password_area">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="confirmButton">
-                <button id="loginButton" type="submit" name="page_id" value="log_id">Login</button>
-            </div>
-        </form>
-        <a href="/"><button type="button">Return</button></a>
-    </div>
+
+
+
 {% endblock %}
