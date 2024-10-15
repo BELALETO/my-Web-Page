@@ -86,6 +86,24 @@ def update_progress(fileName, userName):
     except IOError as e:
         print(f"Error writing to file {fileName}: {e}")
         return False
+    
+    
+def del_user(fileName, name):
+    flag = False
+    with open(fileName, "r") as file:
+        content = json.load(file)
+        for user in content:
+            if user["name"] == name:
+                content.remove(user)
+                flag = True
+    if flag:
+        with open(fileName, "w") as file:
+            json.dump(content, file, indent=4)
+            return True
+    else:
+        return False
+                
+        
 
     return True
 
