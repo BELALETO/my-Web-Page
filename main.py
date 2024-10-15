@@ -152,6 +152,18 @@ def Logout():
     return redirect(url_for("Home"))
 
 
+@app.route("/surrender")
+def Surrender():
+    print("I'm in surrender route")
+    #deleting user from json file logic.
+    fileName = "static/users.json"
+    name = session["username"]
+    print(name)
+    flag = jsonHandler.del_user(fileName, name)
+    print(flag)
+    return redirect(url_for("Logout"))
+
+
 if __name__ == "__main__":
     app.run(debug=True)
 
