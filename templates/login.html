@@ -5,16 +5,25 @@
 {% block title %}Login{% endblock %}
 
 
-
-
-
 {% block content %}
 
+<h1 class="codeTalkers" id="login_title">codeTalkers</h1>
 <div class="container_login">
-        <h1>Login</h1>
+    <h1>Login</h1>
 
-        <form action="/main" method="post" class="login-form">
-            <div class="text_area">
+    <!--flash error message-->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            
+                {% for message in messages %}
+                    <p class="error_message">{{ message }}</p>
+                {% endfor %}
+           
+        {% endif %}
+    {% endwith %}
+
+    <form action="/main" method="post" class="login-form">
+        <div class="text_area">
 
                 <label for="userName">User Name</label>
                 <input type="text" id="userName" name="userName" class="txtBox" placeholder="write your name" required>
@@ -36,18 +45,5 @@
             </div>
         </form>
     </div>
-
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            
-                {% for message in messages %}
-                    <p id="error_message">{{ message }}</p>
-                {% endfor %}
-           
-        {% endif %}
-{% endwith %}
-
-
-
 
 {% endblock %}

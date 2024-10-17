@@ -5,20 +5,22 @@
 
 {% block content %}
 
-{% with messages = get_flashed_messages() %}
-        {% if messages %}
-            
-                {% for message in messages %}
-                    <p>{{ message }}</p>
-                {% endfor %}
-           
-        {% endif %}
-{% endwith %}
 
+
+<h1 class="codeTalkers" id="login_title">codeTalkers</h1>
 
 
 <div class="container_login">
     <h1>Register page</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            
+                {% for message in messages %}
+                    <p class="error_message">{{ message }}</p>
+                {% endfor %}
+           
+        {% endif %}
+    {% endwith %}
     <form action="/main" method="post">
         <div class="text_area">
             <label for="userName">User Name</label>
@@ -40,7 +42,7 @@
         
         <div class="confirmButton">
             <button id="registerButton" type="submit" name="page_id" value="reg_id" class="confirm">Register</button>
-            <a href="/"><button type="button" class="returnBtn">Return</button></a>
+            <a href="/"><button type="button" class="returnBtn" id="return">Return</button></a>
         </div>
     </form>
     
