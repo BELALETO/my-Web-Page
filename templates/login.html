@@ -10,26 +10,29 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container_login">
         <h1>Login</h1>
 
-        <form action="/main" method="post">
+        <form action="/main" method="post" class="login-form">
             <div class="text_area">
 
-                <input type="text" id="userName" name="userName" required>
-                <span></span>
                 <label for="userName">User Name</label>
+                <input type="text" id="userName" name="userName" class="txtBox" placeholder="write your name" required>
+                <span></span>
+               
 
             </div>
         
             <div class="text_area">
-                <input type="password" id="password" name="password" required>
-                <span></span>
                 <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="txtBox"placeholder="your password" required>
+                <span></span>
+                
             </div>
+            
             <div class="confirmButton">
-                <button id="loginButton" type="submit" name="page_id" value="log_id" class="confirm">Login</button>
-                <a href="/"><button type="button" class="returnBtn">Return</button></a>
+                <button class="confirm" id="loginButton" type="submit" name="page_id" value="log_id">Login</button>
+                <a href="/"><button type="button" class="returnBtn" id="return">Return</button></a>
             </div>
         </form>
     </div>

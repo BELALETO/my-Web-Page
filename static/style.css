@@ -59,10 +59,8 @@ body footer
     height: 8%;
     margin: auto;
     padding: 5px 5px 5px 5px;
-    background-color: aliceblue;
     border-radius: 18px;
     display: flex;
-    border: solid whitesmoke;
 }
 
 .container_index .HomeButton
@@ -95,3 +93,96 @@ body footer
 }
 
 /* login page styling */
+
+.container_login
+{
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    width: 60%;
+    height: 50%;
+    margin: auto;
+    border-radius: 19px;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.container_login h1
+{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;   
+}
+
+.text_area
+{
+    display: flex;
+    padding: 2px;
+    margin: 5px;
+    justify-content:center;
+}
+
+.text_area .txtBox
+{
+    padding: 8px;
+    border-radius: 19px;
+    border: 2px solid aliceblue;
+}
+
+.text_area label
+{
+    padding: 5px;
+    font-family: "Press Start 2P", system-ui;    
+}
+
+.confirmButton
+{
+    width: 100%;
+    height: 20%;
+    margin: 10px;
+}
+
+.confirm
+{
+    width: 50%;
+    height: 80%;
+    margin: 10px;
+    padding: 2px;
+    border-radius: 19px;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;    
+}
+
+.returnBtn
+{
+    width: 50%;
+    height: 80%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 2px;
+    border-radius: 19px;
+
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+}
+
+
+.confirmButton .confirm:hover
+{
+    background-color: #2fde2f;
+    transition: .5s;
+}
+
+.confirmButton .returnBtn:hover
+{
+    background-color: #de9b2f;
+    transition: .5s;
+}
