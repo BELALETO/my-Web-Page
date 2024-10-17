@@ -9,6 +9,7 @@ body
     height: 100vh;
     display: flex;
     flex-direction: column;
+    /* text-align: center; */
 }
 
 body footer
@@ -34,12 +35,17 @@ body footer
     color: white;
 }
 
-.headTitle #codeTalkers
+.codeTalkers
 {
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;
     font-style: normal;
     color: gray;
+}
+
+#login_title
+{
+    margin-left: 20px;
 }
 
 .disc
@@ -100,7 +106,7 @@ body footer
     flex-direction: column;
     background-color: aliceblue;
     width: 60%;
-    height: 50%;
+    height: 60%;
     margin: auto;
     border-radius: 19px;
     padding: 10px;
@@ -139,9 +145,9 @@ body footer
 
 .confirmButton
 {
-    width: 100%;
+    width: 90%;
     height: 20%;
-    margin: 10px;
+    margin: 20px;
 }
 
 .confirm
@@ -185,4 +191,179 @@ body footer
 {
     background-color: #de9b2f;
     transition: .5s;
+}
+
+.error_message
+{
+    color: #de9b2f;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    margin: 20px;
+    padding: 2px;
+}
+
+#correct_msg
+{
+    color: #04fa04;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    margin: auto;
+    padding: 10px;
+}
+/* styling dashboard */
+
+
+.main_title
+{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: gray;
+    margin: 50px;
+    padding: 10px;
+}
+
+.problem_txt
+{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+    margin: 50px;
+    padding: 10px;
+}
+
+#challenger
+{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+    margin: 50px;
+    padding: 10px;
+}
+
+
+h2
+{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+}
+
+#message
+{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(211, 184, 30);
+    margin: 50px;
+    padding: 10px;
+}
+
+.container_main
+{
+    width: 90%;
+    height: auto;
+    background-color: aliceblue;
+    border-radius: 19px;
+    margin: auto;
+    padding: 30px;
+    
+}
+
+.problem_container
+{
+    width: 50%;
+    margin: 5px;
+    padding: 5px;
+}
+
+.problem
+{
+    width: 90%;
+    margin: 5px;
+    padding: 5px;
+    width: 50%;
+    /* height: 70%; */
+    border-radius: 19px;
+
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+}
+
+.problem:hover
+{
+    background-color: rgb(201, 196, 196);
+    transition: .5s;
+}
+
+.user_info
+{
+    width: 50%;
+    margin: 5px;
+    padding: 5px;
+}
+
+#progress
+{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+}
+
+.out
+{
+    margin: auto;
+    padding: 10px;
+    display: flex;
+}
+
+.btn_main
+{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 19px;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+}
+
+#logout
+{
+    background-color: #de9b2f;
+}
+
+#surrender
+{
+    background-color: rgb(243, 56, 56);
+}
+
+#logout:hover
+{
+    background-color: #d18100;
+    transition: .5s;
+}
+#surrender:hover
+{
+    background-color: rgb(243, 8, 8);
+    transition: .5s;
+}
+
+
+/* quiz page */
+
+#code
+{
+    font-family: monospace;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
 }

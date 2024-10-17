@@ -4,11 +4,12 @@
 
 {% block content %}
 
-<h1>Enter Your Code</h1>
+<h1 class="main_title">Enter Your Code</h1>
 
     <div class="container">
 
-        <div id="problem_txt">
+        <div><h3 id="challenger">Challenger name: {{NAME}}</h3></div>
+        <div class="problem_txt">
             {{QUIZ}}
             {% if QUIZ == "problem_1" %}
                 <p>write a code which returns Hello World sentence</p>
@@ -22,9 +23,8 @@
                 <p>Write a code which print the division of two varialbes</p>
             {%endif%}
              <!-- write if elif condition for the value of QUIZ value -->
-            </div>
+           
 
-        <div><h3>Challenger name: {{NAME}}</h3></div>
         
         <form action="result" method="post">
             <div id="codeArea">
@@ -40,6 +40,8 @@
             <button id="logout_Quiz">Logout</button>
         </div>
     </div>
+
+</div>
     <script src="../static/script.js"></script>
     
 
