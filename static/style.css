@@ -212,7 +212,19 @@ body footer
     margin: auto;
     padding: 10px;
 }
+
+
+
 /* styling dashboard */
+.challenger_name_main
+{
+    margin-top: 15px;
+    margin-left: 50px;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+}
 
 
 .main_title
@@ -221,29 +233,11 @@ body footer
     font-weight: 400;
     font-style: normal;
     color: gray;
-    margin: 50px;
+    margin: 30px;
     padding: 10px;
 }
 
-.problem_txt
-{
-    font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-style: normal;
-    color: black;
-    margin: 50px;
-    padding: 10px;
-}
 
-#challenger
-{
-    font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-style: normal;
-    color: black;
-    margin: 50px;
-    padding: 10px;
-}
 
 
 h2
@@ -272,7 +266,6 @@ h2
     border-radius: 19px;
     margin: auto;
     padding: 30px;
-    
 }
 
 .problem_container
@@ -290,7 +283,7 @@ h2
     width: 50%;
     /* height: 70%; */
     border-radius: 19px;
-
+    
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;
     font-style: normal;
@@ -359,11 +352,90 @@ h2
 
 
 /* quiz page */
+#challenger_name_quiz
+{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+    margin: 20px;
+    padding: 10px;
+}
+
+
+
+.container_quiz
+{
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    text-align: center;
+}
+
+.problem_txt
+{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+    margin: 10px;
+    padding: 10px;
+}
+
+#codeArea
+{
+    width: 90%;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#code_label
+{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+    margin: 10px;
+}
 
 #code
 {
-    font-family: monospace;
-    font-size: 14px;
-    width: 100%;
-    height: 100%;
+    
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+
+  width: 90%;
+  height: auto;
+  border-radius: 19px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.confirm_code
+{
+    width: 20%;
+    height: auto;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 19px;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;   
+}
+
+#code_submit:hover
+{
+    background-color: #04fa04;
+    transition: .5s;
+}
+
+#return:hover
+{
+    background-color: #d18100;
+    transition: .5s;
 }
