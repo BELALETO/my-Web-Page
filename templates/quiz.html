@@ -4,40 +4,35 @@
 
 {% block content %}
 
-<h1 class="main_title">Enter Your Code</h1>
+<!-- <h1 class="main_title">Enter Your Code</h1> -->
 
-    <div class="container">
+<h3 id="challenger_name_quiz">Challenger name: {{NAME}}</h3>
+    <div class="container_quiz">
 
-        <div><h3 id="challenger">Challenger name: {{NAME}}</h3></div>
-        <div class="problem_txt">
-            {{QUIZ}}
+            <p class="problem_txt">{{QUIZ}}</p>
             {% if QUIZ == "problem_1" %}
-                <p>write a code which returns Hello World sentence</p>
+                <p class="problem_txt">write a code which returns Hello World sentence</p>
             {% elif QUIZ == "problem_2" %}
-                <p>Write a code which print the sum of two varialbes</p>
+                <p class="problem_txt">Write a code which print the sum of two varialbes</p>
             {% elif QUIZ == "problem_3" %}
-                <p>Write a code which print the subtration of two variables</p>
+                <p class="problem_txt">Write a code which print the subtration of two variables</p>
             {% elif QUIZ == "problem_4" %}
-                <p>Write a code which print the multiplication of two varialbes</p>
+                <p class="problem_txt">Write a code which print the multiplication of two varialbes</p>
             {% elif QUIZ == "problem_5" %}
-                <p>Write a code which print the division of two varialbes</p>
+                <p class="problem_txt">Write a code which print the division of two varialbes</p>
             {%endif%}
-             <!-- write if elif condition for the value of QUIZ value -->
-           
+        <div id="codeArea">
 
-        
         <form action="result" method="post">
-            <div id="codeArea">
-                <label for="code">Code:</label><br>
+           
+                <label for="code" id="code_label">Code:</label><br>
                 <textarea id="code" name="code" rows="10" cols="50" placeholder="Enter your code here..." required></textarea>
                 <input type="hidden" name="quiz_id" value="{{QUIZ}}">
                 <input type="hidden" name="userName" value="{{NAME}}">
-            </div>
-            <br>
-            <input type="submit" value="Submit">
-        </form>
-        <div id="logout_area">
-            <button id="logout_Quiz">Logout</button>
+                <br>
+                <input type="submit" value="Submit" class="confirm_code" id="code_submit">
+            </form>
+            <a href="/main"><button type="button" class="confirm_code" id="return">Return</button></a>
         </div>
     </div>
 
