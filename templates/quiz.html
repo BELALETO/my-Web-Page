@@ -4,9 +4,9 @@
 
 {% block content %}
 
-<!-- <h1 class="main_title">Enter Your Code</h1> -->
 
 <h3 id="challenger_name_quiz">Challenger name: {{NAME}}</h3>
+
     <div class="container_quiz">
 
             <p class="problem_txt">{{QUIZ}}</p>
@@ -21,6 +21,8 @@
             {% elif QUIZ == "problem_5" %}
                 <p class="problem_txt">Write a code which print the division of two varialbes</p>
             {%endif%}
+
+        
         <div id="codeArea">
 
         <form action="result" method="post">

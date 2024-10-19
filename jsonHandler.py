@@ -102,8 +102,6 @@ def del_user(fileName, name):
             return True
     else:
         return False
-                
-        
 
     return True
 

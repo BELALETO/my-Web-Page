@@ -1,4 +1,10 @@
 
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
 /* index page styling */
 body
 {
@@ -9,7 +15,6 @@ body
     height: 100vh;
     display: flex;
     flex-direction: column;
-    /* text-align: center; */
 }
 
 body footer
@@ -19,7 +24,6 @@ body footer
     padding: 5px;
     text-align: center;
     border-radius: 19px;
-
 }
 
 .headTitle
@@ -41,11 +45,8 @@ body footer
     font-weight: 400;
     font-style: normal;
     color: gray;
-}
-
-#login_title
-{
-    margin-left: 20px;
+    margin-top: 50px;
+    margin-left: 50px;
 }
 
 .disc
@@ -73,10 +74,7 @@ body footer
 {
     width: 50%;
     height: 80%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 5px 5px 5px 5px;
     padding: 2px;
     border-radius: 19px;
 
@@ -105,8 +103,8 @@ body footer
     display: flex;
     flex-direction: column;
     background-color: aliceblue;
-    width: 60%;
-    height: 60%;
+    width: 40%;
+    height: 60vh;
     margin: auto;
     border-radius: 19px;
     padding: 10px;
@@ -119,7 +117,8 @@ body footer
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;
     font-style: normal;
-    color: black;   
+    color: black;
+    margin-bottom: 20px;   
 }
 
 .text_area
@@ -246,6 +245,8 @@ h2
     font-weight: 400;
     font-style: normal;
     color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #message
@@ -260,25 +261,30 @@ h2
 
 .container_main
 {
-    width: 90%;
-    height: auto;
+    width: 50%;
+    height: 55%;
     background-color: aliceblue;
     border-radius: 19px;
     margin: auto;
-    padding: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .problem_container
 {
-    width: 50%;
+    width: 70%;
     margin: 5px;
     padding: 5px;
+    display: flex;
+    flex-direction: column;
+    /* justify-items: center; */
 }
 
 .problem
 {
-    width: 90%;
-    margin: 5px;
+    width: 50%;
+    margin: 10px;
     padding: 5px;
     width: 50%;
     /* height: 70%; */
@@ -309,6 +315,8 @@ h2
     font-weight: 400;
     font-style: normal;
     color: black;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 .out
@@ -438,4 +446,52 @@ h2
 {
     background-color: #d18100;
     transition: .5s;
+}
+
+/* Styling result page */
+.container_result
+{
+    width: 50%;
+    height: 55%;
+    background-color: aliceblue;
+    border-radius: 19px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.container_result button:hover
+{
+    background-color: #d18100;
+    transition: .5s;
+}
+
+.container_result h3
+{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+    margin: 10px;
+    padding: 10px;
+}
+
+.result_text
+{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+    margin: 10px;
+    padding: 10px;
+}
+
+.output_box
+{
+    border-radius: 19px;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
 }

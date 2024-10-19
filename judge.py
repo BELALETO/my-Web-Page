@@ -1,5 +1,5 @@
 import localCompiler
-
+import os
 
 class court:
     user_solution = ""
@@ -24,6 +24,10 @@ class court:
         main = localCompiler.compiler(self.main_solution, self.main_out, self.input_file)
         
         return (user.build_Run() == main.build_Run())
+        
+    def clean(self):
+        os.remove(self.user_out)
+        os.remove(self.main_out)
         
         
     

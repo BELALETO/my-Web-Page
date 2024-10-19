@@ -1,5 +1,5 @@
-*exe
-*txt
+*.exe
+*.txt
 example.cpp
 users.json
 .gitignore
