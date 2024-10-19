@@ -1,68 +1,26 @@
 [
     {
-        "name": "Momen",
-        "email": "momen@gmail.com",
-        "password": "1234444",
-        "progress": 0
-    },
-    {
-        "name": "Sara",
-        "email": "Sara@gmail.com",
-        "password": "1223455",
-        "progress": 0
-    },
-    {
-        "name": "Bayan",
-        "email": "Bayan@gmail.com",
-        "password": "123456",
-        "progress": 2
-    },
-    {
-        "name": "John",
-        "email": "johnDoe@gmail.com",
-        "password": "12345",
-        "progress": 0
-    },
-    {
-        "name": "Khaled",
-        "email": "Khaled@gmail.com",
-        "password": "12345",
-        "progress": 2
-    },
-    {
-        "name": "abd",
-        "email": "abd@gmail.com",
+        "name": "Belal",
+        "email": "belalsryo@gmail.com",
         "password": "1234",
-        "progress": 1
-    },
-    {
-        "name": "ghofran",
-        "email": "ghofran@gmail.com",
-        "password": "1234",
-        "progress": 0
-    },
-    {
-        "name": "ahmed",
-        "email": "ahmed@gmai.com",
-        "password": "1234",
-        "progress": 4
+        "progress": 2,
+        "flag": 1,
+        "solution_1": true,
+        "solution_2": true,
+        "solution_3": false,
+        "solution_4": false,
+        "solution_5": false
     },
     {
         "name": "Safy",
         "email": "safy@gmail.com",
         "password": "1234",
-        "progress": 1
-    },
-    {
-        "name": "Belal",
-        "email": "belalsryo@gmail.com",
-        "password": "1234",
-        "progress": 71
-    },
-    {
-        "name": "zzz",
-        "email": "zz@gmail.com",
-        "password": "113",
-        "progress": 4
+        "progress": 1,
+        "flag": 0,
+        "solution_1": true,
+        "solution_2": false,
+        "solution_3": false,
+        "solution_4": false,
+        "solution_5": false
     }
 ]

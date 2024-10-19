@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify 
 import jsonHandler
 import localCompiler
-import os  # Import the os module to handle file removal
+import os
+import json
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
@@ -49,10 +50,10 @@ def Main():
             name = request.form.get("userName")
             password = request.form.get("password")
             flag = jsonHandler.check_user("static/users.json", name, password)
-
             if flag:
                 session['username'] = name
                 flash("You've been logged in successfully!", "info")
+                jsonHandler.update_flag("static/users.json", name)
                 return redirect(url_for("Main"))
             else:
                 flash("Wrong name or password!")
@@ -61,7 +62,7 @@ def Main():
     if 'username' in session:
         session_name = session['username']
         progress = jsonHandler.get_progress("static/users.json", session_name)
-        return render_template("main.html", DATA="logged", INFO=str(progress), NAME=session_name)
+        return render_template("main.html", DATA="logged", INFO=str((int(progress)/5)*100), NAME=session_name)
     else:
         return redirect(url_for('Home'))
 
@@ -121,20 +122,12 @@ def Result():
         is_correct = localCompiler.compare_outputs(cpp_file, main_file, cpp_out, main_out, input_file)
 
         if is_correct:
+            session_name = session["username"]
             jsonHandler.update_progress("static/users.json", request.form.get("userName"))
+            jsonHandler.update_problem("static/users.json", session_name, solution[1])
             result_message = "Your Solution is correct!"
         else:
             result_message = "Wrong Solution, try again!"
-
-        # Cleanup: Remove compiled executables (user's and correct solution's)
-        try:
-            if os.path.exists(cpp_out):  # Check if user's executable exists
-                os.remove(cpp_out)
-            if os.path.exists(main_out):  # Check if solution's executable exists
-                os.remove(main_out)
-        except Exception as e:
-            print(f"Error while cleaning up executable files: {e}")
-
         # Pass user output and expected output to the result page
         return render_template("result.html", DATA=result_message, FLAG=key, UOUTPUT=user_output, EOUTPUT=expected_output)
 
@@ -148,12 +141,26 @@ def Logout():
     session.pop("username", None)
     return redirect(url_for("Home"))
 
+
 @app.route("/surrender")
 def Surrender():
     if "username" in session:
         name = session["username"]
         jsonHandler.del_user("static/users.json", name)
     return redirect(url_for("Logout"))
+
+
+@app.route("/get_data")
+def Get_data():
+    if "username" in session:
+        name = session["username"]
+        data = jsonHandler.get_userData("static/users.json", name)
+        print(data)
+        return jsonify(data)
+    else:
+        print("error json")
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
