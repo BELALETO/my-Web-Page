@@ -1,18 +1,23 @@
 import json
 
 class JsonHandler:
-    name = ""
-    email = ""
-    password = ""
-    progress = 0
+    
     def __init__(self, name="None", email="example@gmail.com", password="00000000"): 
         self.name = name
         self.email = email
         self.password = password
         self.progress = 0
+        self.flag = 0
+        self.solution_1 = False
+        self.solution_2 = False
+        self.solution_3 = False
+        self.solution_4 = False
+        self.solution_5 = False
         
     def to_dict(self):
-        return {"name": self.name, "email": self.email, "password": self.password, "progress": self.progress}
+        return {"name": self.name, "email": self.email, "password": self.password, "progress": self.progress, "flag":self.flag,
+                "solution_1":self.solution_1, "solution_2":self.solution_2, "solution_3":self.solution_3, "solution_4":self.solution_4,
+                "solution_5":self.solution_5}
     
     def to_json(self):
         return json.dumps(self.to_dict(), indent=4)
@@ -51,41 +56,40 @@ def get_progress(fileName, userName):
                 return user["progress"]
         return 0
 
-
+def get_userData(fileName, userName):
+    with open(fileName, "r") as file:
+        content = json.load(file)
+        for user in content:
+            if user["name"] == userName:
+                return user  
+    return False  
 
 
 def update_progress(fileName, userName):
-    try:
-        with open(fileName, "r") as file:
-            content = json.load(file)
-    except FileNotFoundError:
-        print(f"Error: The file {fileName} does not exist.")
-        return False
-    except json.JSONDecodeError:
-        print(f"Error: The file {fileName} contains invalid JSON.")
-        return False
-
-    user_found = False
+    with open(fileName, "r") as file:
+        content = json.load(file)
 
     for user in content:
-        if user.get("name") == userName:
-            if "progress" in user and isinstance(user["progress"], int):
-                user["progress"] += 1
-            else:
-                user["progress"] = 1
-            user_found = True
-            break 
+        if user["name"] == userName:
+            user["progress"] = user.get("progress", 0) + 1  
+            break
 
-    if not user_found:
-        print(f"Error: User '{userName}' not found.")
-        return False
+    with open(fileName, "w") as file:
+        json.dump(content, file, indent=4)
+    
+    
+    
+def update_flag(fileName, userName):
+    with open(fileName, "r") as file:
+        content = json.load(file)
 
-    try:
-        with open(fileName, "w") as file:
-            json.dump(content, file, indent=4)
-    except IOError as e:
-        print(f"Error writing to file {fileName}: {e}")
-        return False
+    for user in content:
+        if user["name"] == userName:
+            user["flag"] = user.get("flag", 0) + 1  # Increment flag or set to 1 if not present
+            break
+
+    with open(fileName, "w") as file:
+        json.dump(content, file, indent=4)
     
     
 def del_user(fileName, name):
@@ -105,4 +109,18 @@ def del_user(fileName, name):
 
     return True
 
-             
+
+def update_problem(fileName, name, solution):
+    with open(fileName, "r") as file:
+        content = json.load(file)
+
+    for user in content:
+        if user["name"] == name:
+            user[solution] = True  
+            break
+
+    with open(fileName, "w") as file:
+        json.dump(content, file, indent=4)
+
+    return True
+
