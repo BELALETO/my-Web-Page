@@ -1,11 +1,13 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify 
+from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
 import jsonHandler
-import localCompiler
-import os
+from localCompiler import CPPCompilerRunner  # Import the refactored class
 import json
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
+
+# Initialize the compiler runner
+compiler_runner = CPPCompilerRunner()
 
 # The home page
 @app.route("/")
@@ -77,7 +79,7 @@ def Quiz():
         flash("Please log in or register to access the Quiz form.")
         return redirect(url_for("Home"))
 
-
+# Result page where code execution happens
 @app.route("/result", methods=["POST"])
 def Result():
     code = request.form.get("code")
@@ -99,27 +101,27 @@ def Result():
     if key in solutions:
         solution = solutions[key]
         main_file = solution[0]
-        main_out = solution[1]  # Correct solution's compiled executable
+        main_out = solution[1] 
         if len(solution) > 2:
             input_file = solution[2]
 
-        # Check if the code is for "problem_1" and requires input via cin
         if key == "problem_1":
-            # Provide a default input file for "Hello World" case
             input_file = "static/exams/solution_1/input.txt"
             with open(input_file, "w") as input_f:
-                input_f.write("Sample Input\n")  # Replace with actual expected input
+                input_f.write("Sample Input\n")  
 
-        # Write the user-submitted code to a file
+        # Write the user's code to a file
         with open(cpp_file, "w") as file:
             file.write(code)
 
-        # Compile and run the submitted code and correct solution
-        user_output = localCompiler.compile_and_run(cpp_file, cpp_out, input_file)
-        expected_output = localCompiler.compile_and_run(main_file, main_out, input_file)
+        # Compile and run the user's code
+        user_output = compiler_runner.compile_and_run(cpp_file, cpp_out, input_file)
 
-        # Compare outputs
-        is_correct = localCompiler.compare_outputs(cpp_file, main_file, cpp_out, main_out, input_file)
+        # Compile and run the expected solution
+        expected_output = compiler_runner.compile_and_run(main_file, main_out, input_file)
+
+        # Compare the outputs
+        is_correct = compiler_runner.compare_outputs(cpp_file, main_file, cpp_out, main_out, input_file)
 
         if is_correct:
             session_name = session["username"]
@@ -128,19 +130,17 @@ def Result():
             result_message = "Your Solution is correct!"
         else:
             result_message = "Wrong Solution, try again!"
-        # Pass user output and expected output to the result page
+        
         return render_template("result.html", DATA=result_message, FLAG=key, UOUTPUT=user_output, EOUTPUT=expected_output)
 
     else:
         flash("Invalid quiz ID!")
         return redirect(url_for("Main"))
-        
 
 @app.route("/logout")
 def Logout():
     session.pop("username", None)
     return redirect(url_for("Home"))
-
 
 @app.route("/surrender")
 def Surrender():
@@ -148,7 +148,6 @@ def Surrender():
         name = session["username"]
         jsonHandler.del_user("static/users.json", name)
     return redirect(url_for("Logout"))
-
 
 @app.route("/get_data")
 def Get_data():
@@ -160,6 +159,9 @@ def Get_data():
     else:
         print("error json")
 
+@app.route("/leaderboard")
+def Table():
+    return render_template("table.html")
 
 
 if __name__ == "__main__":

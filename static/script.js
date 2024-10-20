@@ -3,6 +3,7 @@ function changeHead()
 {
     let head = document.getElementById("challenger_name_main");
     let name = document.getElementById("userName");
+    name.innerText = localStorage.getItem("NAME");
     head.innerText = "Welcome back: " + name.innerText + " !";
 }
 
@@ -10,6 +11,7 @@ function initialHead()
 {
     let head = document.getElementById("challenger_name_main");
     let name = document.getElementById("userName");
+    name.innerText = localStorage.getItem("NAME");
     head.innerText = "Welcome " + name.innerText + " !";
 }
 
@@ -22,6 +24,26 @@ if(window.location.pathname === "/")
     register.addEventListener('click', ()=>{window.location.href = 'register';});
 }
 
+else if(window.location.pathname === "/login")
+{
+    let nameBox = document.getElementById("userName");
+    let loginButton = document.getElementById("loginButton");
+
+    loginButton.addEventListener("click", ()=>{
+        localStorage.setItem("NAME", nameBox.value);
+    })
+}
+
+else if(window.location.pathname === "/register")
+{
+
+    let userName = document.getElementById("userName");
+    let registerButton = document.getElementById("registerButton");
+
+    registerButton.addEventListener("click", ()=>{
+        localStorage.setItem("NAME", userName.value);
+    })
+}
 
 else if(window.location.pathname === "/main")
 {

@@ -85,7 +85,7 @@ def update_flag(fileName, userName):
 
     for user in content:
         if user["name"] == userName:
-            user["flag"] = user.get("flag", 0) + 1  # Increment flag or set to 1 if not present
+            user["flag"] = user.get("flag", 0) + 1 
             break
 
     with open(fileName, "w") as file:

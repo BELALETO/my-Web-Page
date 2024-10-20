@@ -1,17 +1,5 @@
 [
     {
-        "name": "Belal",
-        "email": "belalsryo@gmail.com",
-        "password": "1234",
-        "progress": 2,
-        "flag": 1,
-        "solution_1": true,
-        "solution_2": true,
-        "solution_3": false,
-        "solution_4": false,
-        "solution_5": false
-    },
-    {
         "name": "Safy",
         "email": "safy@gmail.com",
         "password": "1234",
@@ -19,6 +7,42 @@
         "flag": 0,
         "solution_1": true,
         "solution_2": false,
+        "solution_3": false,
+        "solution_4": false,
+        "solution_5": false
+    },
+    {
+        "name": "Rania",
+        "email": "rania@gmail.com",
+        "password": "1234",
+        "progress": 1,
+        "flag": 0,
+        "solution_1": true,
+        "solution_2": false,
+        "solution_3": false,
+        "solution_4": false,
+        "solution_5": false
+    },
+    {
+        "name": "Nadia",
+        "email": "nadia@gmail.com",
+        "password": "1234",
+        "progress": 1,
+        "flag": 0,
+        "solution_1": true,
+        "solution_2": false,
+        "solution_3": false,
+        "solution_4": false,
+        "solution_5": false
+    },
+    {
+        "name": "Ammar",
+        "email": "ammar@gmail.com",
+        "password": "1234",
+        "progress": 2,
+        "flag": 0,
+        "solution_1": true,
+        "solution_2": true,
         "solution_3": false,
         "solution_4": false,
         "solution_5": false
