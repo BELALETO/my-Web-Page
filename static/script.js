@@ -54,6 +54,7 @@ else if(window.location.pathname === "/main")
     const btn_5 = document.getElementById("btn_5")
     const logout_btn = document.getElementById("logout")
     const surrender_btn = document.getElementById("surrender")
+    const leaderboard_btn = document.getElementById("leaderboard")
 
     btn_1.addEventListener("click", ()=>{window.location.href="/quiz"})
     btn_2.addEventListener("click",()=>{window.location.href="/quiz"})
@@ -62,7 +63,7 @@ else if(window.location.pathname === "/main")
     btn_5.addEventListener("click",()=>{window.location.href="/quiz"})
     logout_btn.addEventListener("click",()=>{window.location.href="/logout"})
     surrender_btn.addEventListener("click",()=>{window.location.href="/surrender"})
-
+    leaderboard_btn.addEventListener("click", ()=>{window.location.href="/leaderboard"})
     
     fetch("/get_data")
     .then(response => {return response.json();})
@@ -123,3 +124,31 @@ else if(window.location.pathname === "/quiz")
     logoutQuiz.addEventListener("click",()=>{window.location.href="/logout"})
 }
 
+else if(window.location.pathname === "/leaderboard")
+{
+    fetch("/sort_users", {method : "GET", headers:{"Content-Type":"application/json"}})
+    .then(response =>{return response.json()})
+    .then((data)=>{
+        /* fun */
+        print_progress(data);
+    })
+
+    let retTable = document.getElementById("retTable");
+    retTable.addEventListener("click", ()=>{window.location.href="/main"});
+}
+
+function print_progress(data)
+{
+    let table = document.getElementById("table");
+    for(let i = 0; i < data.length; i++)
+    {
+        let row = document.createElement("tr");
+        let nodeName = document.createElement("td");
+        let nodeProgress = document.createElement("td");
+        nodeName.innerText = data[i]["name"];
+        nodeProgress.innerText = data[i]["progress"];
+        row.appendChild(nodeName);
+        row.appendChild(nodeProgress);
+        table.appendChild(row);
+    }
+}

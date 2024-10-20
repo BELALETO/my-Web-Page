@@ -347,6 +347,13 @@ h2
     background-color: rgb(243, 56, 56);
 }
 
+#leaderboard
+{
+    background-color: gold;
+    transition: .5s;
+}
+
+
 #logout:hover
 {
     background-color: #d18100;
@@ -358,6 +365,11 @@ h2
     transition: .5s;
 }
 
+#leaderboard:hover
+{
+    background-color: goldenrod;
+    transition: .5s;
+}
 
 /* quiz page */
 #challenger_name_quiz
@@ -494,4 +506,82 @@ h2
     border: 2px solid black;
     margin: 10px;
     padding: 10px;
+}
+
+/* leaderboard */
+
+.container_table
+{
+    background-color: aliceblue;
+    border-radius: 19px;
+    margin: 20px;
+    padding: 10px;
+    font-size: 0.9em;
+    min-width: 400px;   
+    border-collapse: collapse;
+    
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+}
+
+.container_table thead tr
+{
+    background-color: #009879;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.container_table th,
+.container_table td
+{
+    padding: 12px 25px;
+}
+
+.container_table tbody tr
+{
+    text-align: center;
+    border-bottom: 10px #dddddd solid;
+}
+
+
+.container_table tbody tr:nth-of-type(even)
+{
+    background-color: 10px #f3f3f3 solid;
+}
+
+.container_table tbody tr:last-of-type()
+{
+    border-bottom: 2px #009879 solid;
+}
+
+#header-table
+{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: gray;
+    margin: 10px;
+    padding: 10px;
+}
+
+#retTable
+{
+    margin: auto;
+    padding: 10px;
+    border-radius: 19px;
+
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: black;   
+}
+
+#retTable:hover
+{
+    background-color: #d18100;
+    transition: .5s;
 }

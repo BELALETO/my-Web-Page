@@ -159,6 +159,21 @@ def Get_data():
     else:
         print("error json")
 
+
+@app.route("/sort_users")
+def Sort():
+    data = []
+    with open("static/users.json", "r") as file:
+        content = json.load(file)        
+    for usr in content:
+        obj = {"name": usr["name"], "progress": usr["progress"]}
+        data.append(obj)
+        
+    sorted_data = sorted(data, key=lambda x: x['progress'], reverse=True)
+    # print(sorted_data[0])
+    return jsonify(sorted_data)        
+
+# table of leaderboard.
 @app.route("/leaderboard")
 def Table():
     return render_template("table.html")
