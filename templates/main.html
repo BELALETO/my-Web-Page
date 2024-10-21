@@ -5,25 +5,23 @@
 {% block content %}
 
 
-<h3 id="challenger_name_main">{{DATA}} : <span id="userName"> {{NAME}}</span></h3>
+<div class="welcome"><h3 id="challenger_name_main">{{DATA}} : <span id="userName"> {{NAME}}</span></h3></div>
 
-{% if DATA == "logged" %}
-
-
-<h1 class="main_title">Dashboard</h1>
-
-<!--flash message if logging in successfully-->
-{% with messages = get_flashed_messages() %}
-        {% if messages %}
-            
-                {% for message in messages %}
-                    <p id="correct_msg">{{ message }}</p>
-                {% endfor %}
-           
-        {% endif %}
-    {% endwith %}
-
+<div class="main_title"><h1>Dashboard</h1></div>
 <div class="container_main">
+    {% if DATA == "logged" %}
+    
+    
+    <!--flash message if logging in successfully-->
+    {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                
+                    {% for message in messages %}
+                        <p id="correct_msg">{{ message }}</p>
+                    {% endfor %}
+               
+            {% endif %}
+        {% endwith %}
     
     <h2 id="problem_head">Select a problem</h2>
         
@@ -42,14 +40,14 @@
             <h2>Your Progress</h2>
             <h3 id="progress">{{INFO}}%</h3>
         </div>
+        <div class="out">
+            <button class="btn_main" id="logout">Logout</button>
+            <button class="btn_main" id="surrender">Surrender</button>
+            <button class="btn_main" id="leaderboard">Leaderboard</button>
+        </div>
         
     </div>
     
-    <div class="out">
-        <button class="btn_main" id="logout">Logout</button>
-        <button class="btn_main" id="surrender">Surrender</button>
-        <button class="btn_main" id="leaderboard">Leaderboard</button>
-    </div>
 {% endif %}
 
 <script src="../static/script.js"></script>

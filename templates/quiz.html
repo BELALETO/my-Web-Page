@@ -5,21 +5,21 @@
 {% block content %}
 
 
-<h3 id="challenger_name_quiz">Challenger name: {{NAME}}</h3>
+<div><h3 id="challenger_name_quiz">Challenger name: {{NAME}}</h3></div>
 
     <div class="container_quiz">
 
-            <p class="problem_txt">{{QUIZ}}</p>
+            <div><p class="problem_txt">{{QUIZ}}</p></div>
             {% if QUIZ == "problem_1" %}
-                <p class="problem_txt">write a code which returns Hello World sentence</p>
+                <div class="outer_problem"><p class="problem_txt">write a code which returns Hello World sentence</p></div>
             {% elif QUIZ == "problem_2" %}
-                <p class="problem_txt">Write a code which print the sum of two varialbes</p>
+                <div class="outer_problem"><p class="problem_txt">Write a code which print the sum of two varialbes</p></div>
             {% elif QUIZ == "problem_3" %}
-                <p class="problem_txt">Write a code which print the subtration of two variables</p>
+                <div class="outer_problem"><p class="problem_txt">Write a code which print the subtration of two variables</p></div>
             {% elif QUIZ == "problem_4" %}
-                <p class="problem_txt">Write a code which print the multiplication of two varialbes</p>
+                <div class="outer_problem"><p class="problem_txt">Write a code which print the multiplication of two varialbes</p></div>
             {% elif QUIZ == "problem_5" %}
-                <p class="problem_txt">Write a code which print the division of two varialbes</p>
+                <div class="outer_problem"><p class="problem_txt">Write a code which print the division of two varialbes</p></div>
             {%endif%}
 
         

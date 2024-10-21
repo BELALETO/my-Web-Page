@@ -4,26 +4,26 @@
 
 {% block content %}
 
-<h1 class="codeTalkers">codeTalkers</h1>
+<div class="result_head"><h1 class="codeTalkers">codeTalkers</h1></div>
 
 <div class="container_result">
-    <p class="result_text">{{DATA}}</p>
-    <p class="result_text">{{FLAG}}</p>
+    <div><p class="result_text">{{DATA}}</p></div>
+    <div><p class="result_text">{{FLAG}}</p></div>
 
-    <h3>Your Output</h3>
+    <div><h3>Your Output</h3></div>
     <div class="output_box">
         <p class="output">{{UOUTPUT}}</p>
     </div>
 
-    <h3>Expected Output</h3>
+    <div><h3>Expected Output</h3></div>
     <div class="output_box">
         <p class="output">{{EOUTPUT}}</p>
     </div>
 
     {% if DATA == "Your Solution is correct!" %}
-        <a href="/main"><button class="returnBtn">Return to Dashboard</button></a>
+    <div class="quiz_back"> <a href="/main"><button class="returnBtn">Return to Dashboard</button></a> </div>
     {% else %}
-        <a href="/quiz?problem_description={{FLAG}}"><button class="returnBtn">Return to Quiz</button></a>
+    <div class="quiz_back"> <a href="/quiz?problem_description={{FLAG}}"><button class="returnBtn">Return to Quiz</button></a> </div>
     {% endif %}
 </div>
 

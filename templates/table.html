@@ -4,20 +4,23 @@
 
 {% block content %}
 
-<h1 id="header-table">Leaderboard</h1>
+<div class="header-table"><h1>Leaderboard</h1></div>
 
-<table class="container_table">
-    <thead>
-        <th id>Name</th>
-        <th>Progress</th>
-    </thead>
+<div class="outer_table">
+    <table class="container_table">
+        <thead>
+            <th id>Name</th>
+            <th>Progress</th>
+        </thead>
+    
+        <tbody id="table">
+            
+        </tbody>
+    </table>
+    
+    <button id="retTable">return</button>
+</div>
 
-    <tbody id="table">
-        
-    </tbody>
-</table>
-
-<button id="retTable">return</button>
 <!-- <a href="/main"><button id="retTable">Return to Dashboard</button></a> -->
  
 {% endblock %}

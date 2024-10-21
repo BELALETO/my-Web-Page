@@ -51,6 +51,3 @@ class CPPCompilerRunner:
         else:
             print(f"The outputs are different.\nOutput 1:\n{output_1}\nOutput 2:\n{output_2}")
             return False
-    
-    # def clean(self, out_file):
-    #     os.remove(out_file)
