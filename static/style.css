@@ -133,7 +133,42 @@ body footer
     transition: .5s;
 }
 
+
 /* login page styling */
+
+.text_area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.text_area label {
+    font-family: "Press Start 2P", system-ui;
+    width: 30%; 
+    text-align: right; 
+    margin-right: 10px; 
+}
+
+.text_area .txtBox {
+    width: 70%; 
+    padding: 8px;
+    height: 40px;
+    border-radius: 19px;
+    border: 2px solid aliceblue;
+}
+
+.container_login, .container_register {
+    width: 100%;
+    max-width: 500px; 
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius: 19px;
+    margin: auto;
+}
+
+
+
 
 .codeTalker
 {
@@ -164,37 +199,6 @@ body footer
     font-style: normal;
     color: black;
     margin-bottom: 20px;   
-}
-
-.text_area
-{
-    display: flex;
-    padding: 2px;
-    margin: 5px;
-    justify-content:center;
-    text-align: center;
-    justify-content: center;
-    flex-shrink: 1;
-}
-
-.text_area .txtBox
-{
-    /* display: flex;
-    text-align: center;
-    justify-content: center;
-    flex-shrink: 1; */
-
-    /* min-width: 100px;
-    min-height: 40px; */
-    padding: 8px;
-    border-radius: 19px;
-    border: 2px solid aliceblue;
-}
-
-.text_area label
-{
-    padding: 5px;
-    font-family: "Press Start 2P", system-ui;    
 }
 
 .confirmButton
@@ -455,7 +459,7 @@ h2
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;
     font-style: normal;
-    color: black;
+    color: yellow;
     margin: auto;
     padding: 10px;
 }
@@ -474,6 +478,18 @@ h2
 {
     margin: auto;
     width: 90%;
+}
+
+.problem_head
+{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: gray;
+    /* margin: 10px; */
+    margin: auto;
+    padding: 10px;
+
 }
 
 .problem_txt
@@ -703,6 +719,8 @@ h2
     background-color: #d18100;
     transition: .5s;
 }
+
+
 @media only screen and (max-width: 925px)
 {
     .welcome h3{font-size: 20px;}
@@ -729,35 +747,54 @@ h2
     .disc{text-align: center;}
     
     /*login page */
-    .container_login
+    .container_login 
     {
         flex-wrap: wrap;
-        height: 400px;
-        width: 300px;
-    }
-    .codeTalker h1{font-size: 40px;}
-
-    .confirm{
-        width: 100px;
-        height: 35px;
-        font-size: small bold;
+        height: auto;         
+        width: 100%;          
+        padding: 15px;
+        border-radius: 10px;  
     }
 
-    .returnBtn
-    {
-        width: 100px;
-        height: 35px;
-        font-size: small bold;
-    }
     
-    .text_area label
-    {
-        font-size: smaller bold;
+    .codeTalker h1 {
+        font-size: 30px;      
     }
-    .text_area .txtBox
-    {
-        width: 140px;
-        height: 55px;
+
+    
+    .text_area {
+        flex-direction: column; 
+        align-items: flex-start; 
+        margin-bottom: 15px;
+    }
+
+    /* Style labels */
+    .text_area label {
+        width: 100%;          
+        margin-bottom: 5px;   
+        text-align: left;     
+        font-size: smaller;   
+    }
+
+    /* Style input text boxes */
+    .text_area .txtBox {
+        width: 100%;          
+        height: 40px;         
+        padding: 10px;
+        font-size: small;     
+    }
+
+    /* Adjust button sizes */
+    .confirm, .returnBtn {
+        width: 100%;          
+        height: 40px;         
+        font-size: small;     
+        margin: 10px 0;       
+    }
+
+    /* Adjust error and success messages */
+    .error_message, #correct_msg {
+        font-size: smaller;   
     }
 
     /* quiz page */
@@ -766,4 +803,48 @@ h2
         font-size: 10px;
     }
 
+    /* register page */
+    .container_login{
+        width: 100%;      
+        height: auto;     
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .text_area {
+        flex-direction: column; 
+        align-items: flex-start; 
+        margin-bottom: 15px;
+    }
+
+    .text_area label {
+        width: 100%;         
+        margin-bottom: 5px;   
+        text-align: left;     
+    }
+
+    .text_area .txtBox {
+        width: 100%;          
+        height: 40px;
+        padding: 10px;
+    }
+
+    /* Adjust buttons */
+    .confirm, .returnBtn {
+        width: 100%;          
+        height: 40px;
+        font-size: small;      
+        margin: 10px 0;        
+    }
+
+    /* Adjust form size */
+    form {
+        width: 100%;          
+    }
+
+    /* Adjust font sizes */
+    .codeTalker h1 {
+        font-size: 24px;      
+    }
 }
+
