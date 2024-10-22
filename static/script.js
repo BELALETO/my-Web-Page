@@ -12,7 +12,7 @@ function initialHead()
     let head = document.getElementById("challenger_name_main");
     let name = document.getElementById("userName");
     name.innerText = localStorage.getItem("NAME");
-    head.innerText = "Welcome " + name.innerText + " !";
+    head.innerText = "Welcome to codeTalkers " + name.innerText + " !";
 }
 
 if(window.location.pathname === "/")
@@ -28,60 +28,113 @@ else if(window.location.pathname === "/login")
 {
     let nameBox = document.getElementById("userName");
     let loginButton = document.getElementById("loginButton");
-
+    let ret = document.getElementById("return");
     loginButton.addEventListener("click", ()=>{
         localStorage.setItem("NAME", nameBox.value);
-    })
+    });
+    ret.addEventListener("click", ()=>{window.history.back();});
+
 }
 
 else if(window.location.pathname === "/register")
 {
+    document.addEventListener('DOMContentLoaded', function () {
 
-    let userName = document.getElementById("userName");
-    let registerButton = document.getElementById("registerButton");
-
-    registerButton.addEventListener("click", ()=>{
-        localStorage.setItem("NAME", userName.value);
-    })
+        const usernameInput = document.getElementById('userName');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('Password');
+        const registerButton = document.getElementById('registerButton');
+    
+        // Regular expressions for validation
+        const usernameRegex = /^[A-Za-z][A-Za-z0-9_]{2,19}$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const passwordRegex = /^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{8,}$/; // At least 8 characters, including letters and numbers
+    
+        // Function to validate the username
+        function validateUsername() {
+            if (!usernameRegex.test(usernameInput.value)) {
+                usernameInput.style.borderColor = "red";
+                return false;
+            } else {
+                usernameInput.style.borderColor = "green";
+                return true;
+            }
+        }
+    
+        // Function to validate the email
+        function validateEmail() {
+            if (!emailRegex.test(emailInput.value)) {
+                emailInput.style.borderColor = "red";
+                return false;
+            } else {
+                emailInput.style.borderColor = "green";
+                return true;
+            }
+        }
+    
+        // Function to validate the password
+        function validatePassword() {
+            if (!passwordRegex.test(passwordInput.value)) {
+                passwordInput.style.borderColor = "red";
+                return false;
+            } else {
+                passwordInput.style.borderColor = "green";
+                return true;
+            }
+        }
+    
+        // Validate on form submission
+        registerButton.addEventListener('click', function (event) {
+            if (!validateUsername() || !validateEmail() || !validatePassword()) {
+                event.preventDefault(); // Prevent form submission if validation fails
+            }
+        });
+    
+        usernameInput.addEventListener('blur', validateUsername);
+        emailInput.addEventListener('blur', validateEmail);
+        passwordInput.addEventListener('blur', validatePassword);
+    
+        const ret = document.getElementById('return'); 
+        ret.addEventListener('click',()=>{window.history.back();});
+    
+    });
 }
 
 else if(window.location.pathname === "/main")
 {
-    const btn_1 = document.getElementById("btn_1")
-    const btn_2 = document.getElementById("btn_2")
-    const btn_3 = document.getElementById("btn_3")
-    const btn_4 = document.getElementById("btn_4")
-    const btn_5 = document.getElementById("btn_5")
-    const logout_btn = document.getElementById("logout")
-    const surrender_btn = document.getElementById("surrender")
-    const leaderboard_btn = document.getElementById("leaderboard")
+    let container = document.getElementById("container_main");
+    const problem_head = document.getElementById("problem_head");
+    let form = document.getElementById("form_container");
+    const btn_1 = document.getElementById("btn_1");
+    const btn_2 = document.getElementById("btn_2");
+    const btn_3 = document.getElementById("btn_3");
+    const btn_4 = document.getElementById("btn_4");
+    const btn_5 = document.getElementById("btn_5");
+    const logout_btn = document.getElementById("logout");
+    const surrender_btn = document.getElementById("surrender");
+    const leaderboard_btn = document.getElementById("leaderboard");
 
-    btn_1.addEventListener("click", ()=>{window.location.href="/quiz"})
-    btn_2.addEventListener("click",()=>{window.location.href="/quiz"})
-    btn_3.addEventListener("click",()=>{window.location.href="/quiz"})
-    btn_4.addEventListener("click",()=>{window.location.href="/quiz"})
-    btn_5.addEventListener("click",()=>{window.location.href="/quiz"})
-    logout_btn.addEventListener("click",()=>{window.location.href="/logout"})
-    surrender_btn.addEventListener("click",()=>{window.location.href="/surrender"})
-    leaderboard_btn.addEventListener("click", ()=>{window.location.href="/leaderboard"})
+    btn_1.addEventListener("click", ()=>{window.location.href="/quiz"});
+    btn_2.addEventListener("click",()=>{window.location.href="/quiz"});
+    btn_3.addEventListener("click",()=>{window.location.href="/quiz"});
+    btn_4.addEventListener("click",()=>{window.location.href="/quiz"});
+    btn_5.addEventListener("click",()=>{window.location.href="/quiz"});
+    logout_btn.addEventListener("click",()=>{window.location.href="/logout"});
+    surrender_btn.addEventListener("click",()=>{window.location.href="/surrender"});
+    leaderboard_btn.addEventListener("click", ()=>{window.location.href="/leaderboard"});
     
     fetch("/get_data")
     .then(response => {return response.json();})
     .then(data =>{const flag = data.flag;
         if(flag)
         {
-            console.log("I'm safe");
-            console.log(flag);
             changeHead();
         }
         else
         {
-            console.log("I'm not safe");
-            console.log(flag)
             initialHead();
         }
         })
-        .catch(error=>{console.log("error")})
 
     fetch("/get_data")
     .then(response => {return response.json();})
@@ -90,7 +143,7 @@ else if(window.location.pathname === "/main")
         const s3 = data.solution_3;
         const s4 = data.solution_4;
         const s5 = data.solution_5;
-
+        const champ = s1 && s2 && s3 && s4 && s5;
         if(s1)
         {
             btn_1.disabled = true;
@@ -111,17 +164,36 @@ else if(window.location.pathname === "/main")
         {
             btn_5.disabled = true;
         }
+        if(champ)
+        {
+            container.removeChild(problem_head);
+            form.removeChild(btn_1);
+            form.removeChild(btn_2);
+            form.removeChild(btn_3);
+            form.removeChild(btn_4);
+            form.removeChild(btn_5);
+            let p1 = document.createElement("p");
+            let p2 = document.createElement("p");
+            p1.innerText = "Congratulations champ!"
+            p2.innerText = "You're Officially a codeTalker.";
+            form.appendChild(p1);
+            form.appendChild(p2);
+        }
     })
-        
-        .catch(error=>{console.log("error")})
-
     
 }
 
 else if(window.location.pathname === "/quiz")
 {
-    const logoutQuiz = document.getElementById("logout_Quiz")
-    logoutQuiz.addEventListener("click",()=>{window.location.href="/logout"})
+    let code = document.getElementById("code");
+    const retButton = document.getElementById("return");
+
+    code.innerText = localStorage.getItem("code");
+    code.addEventListener("change", ()=>{localStorage.setItem("code", code.value)});
+
+    retButton.addEventListener("click", ()=>{
+        localStorage.setItem("code", "");
+        window.location.href="/main"});
 }
 
 else if(window.location.pathname === "/leaderboard")
@@ -129,12 +201,11 @@ else if(window.location.pathname === "/leaderboard")
     fetch("/sort_users", {method : "GET", headers:{"Content-Type":"application/json"}})
     .then(response =>{return response.json()})
     .then((data)=>{
-        /* fun */
         print_progress(data);
     })
 
     let retTable = document.getElementById("retTable");
-    retTable.addEventListener("click", ()=>{window.location.href="/main"});
+    retTable.addEventListener("click", ()=>{window.history.back();});
 }
 
 function print_progress(data)

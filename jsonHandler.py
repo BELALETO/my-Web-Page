@@ -123,4 +123,3 @@ def update_problem(fileName, name, solution):
         json.dump(content, file, indent=4)
 
     return True
-

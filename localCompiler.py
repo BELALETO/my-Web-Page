@@ -1,5 +1,4 @@
 import subprocess
-import os
 
 class CPPCompilerRunner:
     
@@ -46,8 +45,6 @@ class CPPCompilerRunner:
         
         # Compare the outputs
         if output_1 == output_2:
-            print("The outputs are the same.")
             return True
         else:
-            print(f"The outputs are different.\nOutput 1:\n{output_1}\nOutput 2:\n{output_2}")
             return False

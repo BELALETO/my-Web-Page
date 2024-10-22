@@ -8,7 +8,7 @@
 <div class="welcome"><h3 id="challenger_name_main">{{DATA}} : <span id="userName"> {{NAME}}</span></h3></div>
 
 <div class="main_title"><h1>Dashboard</h1></div>
-<div class="container_main">
+<div id="container_main">
     {% if DATA == "logged" %}
     
     
@@ -23,10 +23,10 @@
             {% endif %}
         {% endwith %}
     
-    <h2 id="problem_head">Select a problem</h2>
+        <h2 id="problem_head">Select a problem</h2>
         
-        <div class="problem_container">
-            <form action="/quiz" method="get">
+        <div id="problem_container">
+            <form action="/quiz" method="get" id="form_container">
                 <button class="problem" name="problem_description" id="btn_1" type="submit" value="problem_1">Quiz 1</button>
                 <button class="problem" name="problem_description" id="btn_2" type="submit" value="problem_2">Quiz 2</button>
                 <button class="problem" name="problem_description" id="btn_3" type="submit" value="problem_3">Quiz 3</button>

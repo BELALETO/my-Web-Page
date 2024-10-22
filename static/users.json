@@ -51,13 +51,13 @@
         "name": "Belal",
         "email": "belalsryo@gmail.com",
         "password": "1234",
-        "progress": 4,
-        "flag": 29,
+        "progress": 5,
+        "flag": 50,
         "solution_1": true,
         "solution_2": true,
         "solution_3": true,
         "solution_4": true,
-        "solution_5": false
+        "solution_5": true
     },
     {
         "name": "abd",

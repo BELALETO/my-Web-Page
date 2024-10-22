@@ -154,10 +154,9 @@ def Get_data():
     if "username" in session:
         name = session["username"]
         data = jsonHandler.get_userData("static/users.json", name)
-        print(data)
         return jsonify(data)
     else:
-        print("error json")
+        return False
 
 
 @app.route("/sort_users")
@@ -170,7 +169,6 @@ def Sort():
         data.append(obj)
         
     sorted_data = sorted(data, key=lambda x: x['progress'], reverse=True)
-    # print(sorted_data[0])
     return jsonify(sorted_data)        
 
 # table of leaderboard.
