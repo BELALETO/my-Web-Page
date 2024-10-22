@@ -16,7 +16,7 @@
         "email": "rania@gmail.com",
         "password": "1234",
         "progress": 1,
-        "flag": 0,
+        "flag": 1,
         "solution_1": true,
         "solution_2": false,
         "solution_3": false,
@@ -52,7 +52,7 @@
         "email": "belalsryo@gmail.com",
         "password": "1234",
         "progress": 5,
-        "flag": 53,
+        "flag": 62,
         "solution_1": true,
         "solution_2": true,
         "solution_3": true,
@@ -64,7 +64,7 @@
         "email": "abd@gmail.com",
         "password": "1234",
         "progress": 1,
-        "flag": 0,
+        "flag": 4,
         "solution_1": true,
         "solution_2": false,
         "solution_3": false,
@@ -72,33 +72,9 @@
         "solution_5": false
     },
     {
-        "name": "biko",
-        "email": "biko@gmail.com",
-        "password": "1234",
-        "progress": 1,
-        "flag": 1,
-        "solution_1": true,
-        "solution_2": false,
-        "solution_3": false,
-        "solution_4": false,
-        "solution_5": false
-    },
-    {
-        "name": "shrouk",
-        "email": "shosho@gmail.com",
-        "password": "1234",
-        "progress": 1,
-        "flag": 0,
-        "solution_1": true,
-        "solution_2": false,
-        "solution_3": false,
-        "solution_4": false,
-        "solution_5": false
-    },
-    {
-        "name": "soso",
-        "email": "soso@gmail.com",
-        "password": "1234",
+        "name": "sisis",
+        "email": "sisi@gmail.com",
+        "password": "1122bbbb",
         "progress": 0,
         "flag": 0,
         "solution_1": false,
@@ -108,15 +84,39 @@
         "solution_5": false
     },
     {
-        "name": "sisi",
-        "email": "sisi@gmail.com",
-        "password": "1234ssss",
-        "progress": 1,
+        "name": "sosos",
+        "email": "messi@gmail.com",
+        "password": "12222bbbbbb",
+        "progress": 0,
         "flag": 0,
         "solution_1": false,
         "solution_2": false,
         "solution_3": false,
         "solution_4": false,
-        "solution_5": true
+        "solution_5": false
+    },
+    {
+        "name": "solo",
+        "email": "solo@gmail.com",
+        "password": "1122bbbbb",
+        "progress": 1,
+        "flag": 0,
+        "solution_1": true,
+        "solution_2": false,
+        "solution_3": false,
+        "solution_4": false,
+        "solution_5": false
+    },
+    {
+        "name": "samir",
+        "email": "samir@gmail.com",
+        "password": "555bbsss",
+        "progress": 0,
+        "flag": 0,
+        "solution_1": false,
+        "solution_2": false,
+        "solution_3": false,
+        "solution_4": false,
+        "solution_5": false
     }
 ]

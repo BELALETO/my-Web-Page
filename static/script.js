@@ -38,8 +38,6 @@ else if(window.location.pathname === "/login")
 
 else if(window.location.pathname === "/register")
 {
-    document.addEventListener('DOMContentLoaded', function () {
-
         const usernameInput = document.getElementById('userName');
         const emailInput = document.getElementById('email');
         const passwordInput = document.getElementById('Password');
@@ -88,6 +86,10 @@ else if(window.location.pathname === "/register")
             if (!validateUsername() || !validateEmail() || !validatePassword()) {
                 event.preventDefault(); // Prevent form submission if validation fails
             }
+            else
+            {
+                localStorage.setItem("NAME",usernameInput.value);
+            }
         });
     
         usernameInput.addEventListener('blur', validateUsername);
@@ -96,12 +98,13 @@ else if(window.location.pathname === "/register")
     
         const ret = document.getElementById('return'); 
         ret.addEventListener('click',()=>{window.history.back();});
-    
-    });
 }
 
 else if(window.location.pathname === "/main")
 {
+    let head = document.getElementById("challenger_name_main");
+    let name = document.getElementById("userName");
+
     let container = document.getElementById("container_main");
     const problem_head = document.getElementById("problem_head");
     let form = document.getElementById("form_container");
@@ -187,11 +190,8 @@ else if(window.location.pathname === "/quiz")
 {
     const retButton = document.getElementById("return");
 
-    code.addEventListener("change", ()=>{localStorage.setItem("code", code.value)});
 
-    retButton.addEventListener("click", ()=>{
-        localStorage.setItem("code", "");
-        window.location.href="/main"});
+    retButton.addEventListener("click", ()=>{window.location.href="/main"});
 }
 
 else if(window.location.pathname === "/leaderboard")
@@ -221,3 +221,9 @@ function print_progress(data)
         table.appendChild(row);
     }
 }
+
+
+
+
+
+
