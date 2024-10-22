@@ -2,12 +2,12 @@
 
 using namespace std;
 
-int fun(int a, int b){return a+b;}
+double div(double a, double b){return a / b;}
 
-int main(void)
+int main()
 {
- int a , b;
+ double a, b;
  cin >> a >> b;
- cout << fun(a, b) << endl;
+ cout << div(a, b) << endl;
  return 0;
 }

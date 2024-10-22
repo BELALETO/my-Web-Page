@@ -27,10 +27,10 @@
         "name": "Nadia",
         "email": "nadia@gmail.com",
         "password": "1234",
-        "progress": 1,
-        "flag": 0,
+        "progress": 2,
+        "flag": 1,
         "solution_1": true,
-        "solution_2": false,
+        "solution_2": true,
         "solution_3": false,
         "solution_4": false,
         "solution_5": false
@@ -52,7 +52,7 @@
         "email": "belalsryo@gmail.com",
         "password": "1234",
         "progress": 5,
-        "flag": 51,
+        "flag": 53,
         "solution_1": true,
         "solution_2": true,
         "solution_3": true,
@@ -94,5 +94,29 @@
         "solution_3": false,
         "solution_4": false,
         "solution_5": false
+    },
+    {
+        "name": "soso",
+        "email": "soso@gmail.com",
+        "password": "1234",
+        "progress": 0,
+        "flag": 0,
+        "solution_1": false,
+        "solution_2": false,
+        "solution_3": false,
+        "solution_4": false,
+        "solution_5": false
+    },
+    {
+        "name": "sisi",
+        "email": "sisi@gmail.com",
+        "password": "1234ssss",
+        "progress": 1,
+        "flag": 0,
+        "solution_1": false,
+        "solution_2": false,
+        "solution_3": false,
+        "solution_4": false,
+        "solution_5": true
     }
 ]

@@ -48,8 +48,8 @@ else if(window.location.pathname === "/register")
         // Regular expressions for validation
         const usernameRegex = /^[A-Za-z][A-Za-z0-9_]{2,19}$/;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const passwordRegex = /^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{8,}$/; // At least 8 characters, including letters and numbers
-    
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; // At least 8 characters, including letters and numbers
+        
         // Function to validate the username
         function validateUsername() {
             if (!usernameRegex.test(usernameInput.value)) {
@@ -185,10 +185,8 @@ else if(window.location.pathname === "/main")
 
 else if(window.location.pathname === "/quiz")
 {
-    let code = document.getElementById("code");
     const retButton = document.getElementById("return");
 
-    code.innerText = localStorage.getItem("code");
     code.addEventListener("change", ()=>{localStorage.setItem("code", code.value)});
 
     retButton.addEventListener("click", ()=>{
