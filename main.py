@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
 import jsonHandler
-from localCompiler import CPPCompilerRunner  # Import the refactored class
+from localCompiler import CPPCompilerRunner  
 import json
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
 
-# Initialize the compiler runner
+
 compiler_runner = CPPCompilerRunner()
 
 # The home page
