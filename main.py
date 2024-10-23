@@ -4,7 +4,7 @@ from localCompiler import CPPCompilerRunner
 import json
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"
+app.secret_key = "codeTalkers"
 
 
 compiler_runner = CPPCompilerRunner()
