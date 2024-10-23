@@ -49,19 +49,19 @@ A web-based coding competition platform designed for users to test their C++ cod
 - [x] It contains at least one class written by you that has both properties and methods. It uses `__init__()` to let the class initialize the object's attributes (note that  `__init__()` doesn't count as a method). This includes instantiating the class and using the methods in your app. 
 Please provide below the file name and the line number(s) of at least one example of a class definition in your code as well as the names of two properties and two methods. 
 - File name for the class definition: jsonHandler 
-- Line number(s) for the class definition: 
+- Line number(s) for the class definition: 18 
 - Name of two properties: name, email.
 - Name of two methods:  get_progress, check_user
-- File name and line numbers where the methods are used: jsonHandler.py, get_progress: 51, check_user:43
+- File name and line numbers where the methods are used: jsonHandler.py, get_progress: 60, check_user:51
 - [x] It makes use of JavaScript in the front end and uses the localStorage of the web browser.
 - [x] It uses modern JavaScript (for example, let and const rather than var).
 - [x] It makes use of the reading and writing to the same file feature.
 - [x] It contains conditional statements. Please provide below the file name and the line number(s) of at least one example of a conditional statement in your code. 
 - File name: static/script.js
-- Line number(s): line 55.
+- Line number(s): line 53.
 - [x] It contains loops. Please provide below the file name and the line number(s) of at least one example of a loop in your code. 
 - File name: script.js
-- Line number(s): line 214. 
+- Line number(s): line 216. 
 - [x] It lets the user enter a value in a text box at some point. 
 This value is received and processed by your back end Python code.
 - [x] It doesn't generate any error message even if the user enters a wrong input. 
