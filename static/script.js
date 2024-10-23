@@ -1,4 +1,4 @@
-
+// to change the header in the dashboard if the user login.
 function changeHead()
 {
     let head = document.getElementById("challenger_name_main");
@@ -6,7 +6,7 @@ function changeHead()
     name.innerText = localStorage.getItem("NAME");
     head.innerText = "Welcome back: " + name.innerText + " !";
 }
-
+// to change the header in the dashboard if the user registerd.
 function initialHead()
 {
     let head = document.getElementById("challenger_name_main");
@@ -126,6 +126,7 @@ else if(window.location.pathname === "/main")
     surrender_btn.addEventListener("click",()=>{window.location.href="/surrender"});
     leaderboard_btn.addEventListener("click", ()=>{window.location.href="/leaderboard"});
     
+    //fetching data from /get_data route, which returns json data.
     fetch("/get_data")
     .then(response => {return response.json();})
     .then(data =>{const flag = data.flag;
@@ -142,11 +143,12 @@ else if(window.location.pathname === "/main")
     fetch("/get_data")
     .then(response => {return response.json();})
     .then(data =>{const s1 = data.solution_1;
-        const s2 = data.solution_2;
+        const s2 = data.solution_2; 
         const s3 = data.solution_3;
         const s4 = data.solution_4;
         const s5 = data.solution_5;
-        const champ = s1 && s2 && s3 && s4 && s5;
+        const champ = s1 && s2 && s3 && s4 && s5; //checking if the user solve all problems
+        //disable the solved problems buttons.
         if(s1)
         {
             btn_1.disabled = true;
@@ -169,6 +171,7 @@ else if(window.location.pathname === "/main")
         }
         if(champ)
         {
+            // re-styling the dashboard if the user solved all exams.
             container.removeChild(problem_head);
             form.removeChild(btn_1);
             form.removeChild(btn_2);
@@ -208,6 +211,7 @@ else if(window.location.pathname === "/leaderboard")
 
 function print_progress(data)
 {
+    // printing the leaderboard.
     let table = document.getElementById("table");
     for(let i = 0; i < data.length; i++)
     {
