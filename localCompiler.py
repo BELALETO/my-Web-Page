@@ -2,6 +2,7 @@ import subprocess
 
 class CPPCompilerRunner:
     
+    # The name of the method descripe it self bro :)    
     def compile_and_run(self, cpp_file, output_executable, input_file=None):
        
         compile_command = ["g++", cpp_file, "-o", output_executable]
@@ -27,6 +28,7 @@ class CPPCompilerRunner:
         except subprocess.CalledProcessError as e:
             return f"Execution failed for {cpp_file}: {e}"
 
+    # Method to compile 2 file and compare their outputs.
     def compare_outputs(self, cpp_file_1, cpp_file_2, output_executable_1, output_executable_2, input_file=None):
         output_1 = self.compile_and_run(cpp_file_1, output_executable_1, input_file)
         

@@ -38,7 +38,8 @@ def Main():
 
             obj = jsonHandler.JsonHandler(name, email, password)
             flag = obj.save_to_json("static/users.json")
-
+            
+            # Checking if the object written in json file successfully or not.
             if flag:
                 session['username'] = name
                 flash("Welcome Challenger!")
@@ -98,6 +99,7 @@ def Result():
         "problem_5": ("static/exams/solution_5/solution5.cpp", "solution_5", "static/exams/solution_5/test.txt"),
     }
 
+    # Store the paths of model answer and excutable files.
     if key in solutions:
         solution = solutions[key]
         main_file = solution[0]
@@ -123,6 +125,7 @@ def Result():
         # Compare the outputs
         is_correct = compiler_runner.compare_outputs(cpp_file, main_file, cpp_out, main_out, input_file)
 
+        # Update the progress and problem state.
         if is_correct:
             session_name = session["username"]
             jsonHandler.update_progress("static/users.json", request.form.get("userName"))
@@ -139,9 +142,11 @@ def Result():
 
 @app.route("/logout")
 def Logout():
+    # popping the current session.
     session.pop("username", None)
     return redirect(url_for("Home"))
 
+# route to delete user.
 @app.route("/surrender")
 def Surrender():
     if "username" in session:
@@ -149,6 +154,7 @@ def Surrender():
         jsonHandler.del_user("static/users.json", name)
     return redirect(url_for("Logout"))
 
+# A special route to send data to front-end.
 @app.route("/get_data")
 def Get_data():
     if "username" in session:
@@ -158,7 +164,7 @@ def Get_data():
     else:
         return False
 
-
+# A special route to sort users score and send them to front-end.
 @app.route("/sort_users")
 def Sort():
     data = []
